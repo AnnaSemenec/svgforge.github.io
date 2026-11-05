@@ -1,10 +1,12 @@
 ---
+
 title: Welcome to the svgforge blog
 description: A quick introduction to this blog and what you can expect to find here.
 pubDate: 2026-01-15
 tags:
-  - news
-  - svgforge
+- news
+- svgforge
+
 ---
 
 This is the first post on the svgforge blog. Here we will write about SVG

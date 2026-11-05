@@ -1,12 +1,14 @@
 ---
+
 title: Why SVG? History, Basics, and SVG Fragments
 pubDate: 2026-02-18
 tags:
-  - tips
-  - svg
+- tips
+- svg
+
 ---
 
-**SVG** stands for *Scalable Vector Graphics* and is an XML-based description language for two-dimensional graphics on the web.
+**SVG** stands for _Scalable Vector Graphics_ and is an XML-based description language for two-dimensional graphics on the web.
 
 Unlike PNG or JPEG, SVG does not store individual pixels. Instead, it describes geometric shapes, paths, colors, and transformations. The browser recalculates the graphic at every display size.
 
@@ -296,13 +298,13 @@ SVG fragment identifiers have been part of the SVG 1.1 specification for a long 
 
 A rough historical overview looks like this:
 
-| Browser | Support |
-|---|---|
-| Firefox | Important support starting with Firefox 15, around 2012 |
-| Internet Explorer | SVG support starting with IE9; better fragment support in later versions |
-| Chrome | Initially partial support; considerably more stable from around Chrome 50 |
-| Safari | Partial support; broader support from Safari 11.1 |
-| Modern browsers | Generally well supported |
+| Browser           | Support                                                                   |
+| ----------------- | ------------------------------------------------------------------------- |
+| Firefox           | Important support starting with Firefox 15, around 2012                   |
+| Internet Explorer | SVG support starting with IE9; better fragment support in later versions  |
+| Chrome            | Initially partial support; considerably more stable from around Chrome 50 |
+| Safari            | Partial support; broader support from Safari 11.1                         |
+| Modern browsers   | Generally well supported                                                  |
 
 A distinction must be made between different use cases:
 

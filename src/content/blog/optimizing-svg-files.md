@@ -1,11 +1,13 @@
 ---
+
 title: Optimizing SVG files
 description: How to customize the built-in SVGO v4 optimization in svgforge-cli with the shape.transform config.
 pubDate: 2026-02-18
 tags:
-  - tips
-  - svg
-  - svgo
+- tips
+- svg
+- svgo
+
 ---
 
 A few practical tips for shrinking SVG files before they are baked into sprites.
@@ -47,28 +49,28 @@ Create a JSON config file and point the CLI at it with `--config`:
 
 ```json
 {
-  "dest": "out",
-  "shape": {
-    "transform": [
-      {
-        "svgo": {
-          "plugins": [
-            "preset-default",
-            { "name": "removeViewBox" },
-            { "name": "removeTitle" },
-            { "name": "removeXMLProcInst" },
-            { "name": "removeDoctype" }
-          ]
-        }
-      }
-    ]
-  },
-  "mode": {
-    "view": {
-      "sprite": "svg/sprite.view.svg",
-      "example": true
-    }
-  }
+	"dest": "out",
+	"shape": {
+		"transform": [
+			{
+				"svgo": {
+					"plugins": [
+						"preset-default",
+						{ "name": "removeViewBox" },
+						{ "name": "removeTitle" },
+						{ "name": "removeXMLProcInst" },
+						{ "name": "removeDoctype" }
+					]
+				}
+			}
+		]
+	},
+	"mode": {
+		"view": {
+			"sprite": "svg/sprite.view.svg",
+			"example": true
+		}
+	}
 }
 ```
 
@@ -85,32 +87,32 @@ the built-in defaults entirely.
 
 ## Disabling specific plugins
 
-More often than you want to add plugins, you want to turn one *off*. Use
+More often than you want to add plugins, you want to turn one _off_. Use
 `preset-default` with `overrides`:
 
 ```json
 {
-  "shape": {
-    "transform": [
-      {
-        "svgo": {
-          "plugins": [
-            {
-              "name": "preset-default",
-              "params": {
-                "overrides": {
-                  "cleanupIds": false,
-                  "removeHiddenElems": false
-                }
-              }
-            },
-            { "name": "removeViewBox" },
-            { "name": "removeTitle" }
-          ]
-        }
-      }
-    ]
-  }
+	"shape": {
+		"transform": [
+			{
+				"svgo": {
+					"plugins": [
+						{
+							"name": "preset-default",
+							"params": {
+								"overrides": {
+									"cleanupIds": false,
+									"removeHiddenElems": false
+								}
+							}
+						},
+						{ "name": "removeViewBox" },
+						{ "name": "removeTitle" }
+					]
+				}
+			}
+		]
+	}
 }
 ```
 
@@ -127,26 +129,26 @@ individual shapes. Remove the `removeDimensions` plugin:
 
 ```json
 {
-  "shape": {
-    "transform": [
-      {
-        "svgo": {
-          "plugins": [
-            {
-              "name": "preset-default",
-              "params": {
-                "overrides": {
-                  "removeDimensions": false
-                }
-              }
-            },
-            { "name": "removeViewBox" },
-            { "name": "removeTitle" }
-          ]
-        }
-      }
-    ]
-  }
+	"shape": {
+		"transform": [
+			{
+				"svgo": {
+					"plugins": [
+						{
+							"name": "preset-default",
+							"params": {
+								"overrides": {
+									"removeDimensions": false
+								}
+							}
+						},
+						{ "name": "removeViewBox" },
+						{ "name": "removeTitle" }
+					]
+				}
+			}
+		]
+	}
 }
 ```
 
@@ -157,13 +159,13 @@ accessibility, turn off the relevant plugins:
 
 ```json
 {
-  "name": "preset-default",
-  "params": {
-    "overrides": {
-      "removeTitle": false,
-      "removeDesc": false
-    }
-  }
+	"name": "preset-default",
+	"params": {
+		"overrides": {
+			"removeTitle": false,
+			"removeDesc": false
+		}
+	}
 }
 ```
 
@@ -177,22 +179,22 @@ When output size is everything, add extra plugins beyond the default:
 
 ```json
 {
-  "shape": {
-    "transform": [
-      {
-        "svgo": {
-          "plugins": [
-            "preset-default",
-            { "name": "removeViewBox" },
-            { "name": "removeTitle" },
-            { "name": "removeDimensions" },
-            { "name": "removeStyleElement" },
-            { "name": "removeScriptElement" }
-          ]
-        }
-      }
-    ]
-  }
+	"shape": {
+		"transform": [
+			{
+				"svgo": {
+					"plugins": [
+						"preset-default",
+						{ "name": "removeViewBox" },
+						{ "name": "removeTitle" },
+						{ "name": "removeDimensions" },
+						{ "name": "removeStyleElement" },
+						{ "name": "removeScriptElement" }
+					]
+				}
+			}
+		]
+	}
 }
 ```
 
@@ -203,20 +205,20 @@ attributes rather than `<style>` blocks:
 
 ```json
 {
-  "shape": {
-    "transform": [
-      {
-        "svgo": {
-          "plugins": [
-            "preset-default",
-            { "name": "convertStyleToAttrs" },
-            { "name": "removeViewBox" },
-            { "name": "removeTitle" }
-          ]
-        }
-      }
-    ]
-  }
+	"shape": {
+		"transform": [
+			{
+				"svgo": {
+					"plugins": [
+						"preset-default",
+						{ "name": "convertStyleToAttrs" },
+						{ "name": "removeViewBox" },
+						{ "name": "removeTitle" }
+					]
+				}
+			}
+		]
+	}
 }
 ```
 
@@ -258,7 +260,7 @@ debuggable.
 - Run `svgforge --log=debug` to see how many bytes SVGO saved per shape.
 - Start with the defaults. Only add custom config when you have a concrete
   reason.
-- If you need *completely* unmodified SVGs, set `transform: []` to disable
+- If you need _completely_ unmodified SVGs, set `transform: []` to disable
   all optimizations.
 - The `multipass` option of SVGO is not wired through svgforge — each
   shape is optimized in a single pass. This is fine: the shapes are small

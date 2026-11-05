@@ -1,12 +1,14 @@
 ---
+
 title: Create Your Own Icon Sets for the SVG Forge Icon Manager
 pubDate: 2026-09-15
 tags:
-  - tips
-  - svg
+- tips
+- svg
+
 ---
 
-The **SVG Forge Icon Manager** is a Gutenberg plugin for WordPress: an "SVG Icon" block inserts icons via `<use>` from a central SVG sprite file into your content. The plugin is deliberately *not* an icon collection with an import UI — every icon must exist as a `<symbol>` element in a sprite file that you build, maintain, and version yourself.
+The **SVG Forge Icon Manager** is a Gutenberg plugin for WordPress: an "SVG Icon" block inserts icons via `<use>` from a central SVG sprite file into your content. The plugin is deliberately _not_ an icon collection with an import UI — every icon must exist as a `<symbol>` element in a sprite file that you build, maintain, and version yourself.
 
 This article shows you how to create your own icon set: create a folder full of SVG files, build them with [svgforge-cli](https://github.com/svgforge/svgforge-cli/) into a sprite file in one line, and hook it into the plugin. Including the **directory-marker trick**, which turns your subfolders into filter groups in the icon picker automatically.
 
@@ -71,10 +73,10 @@ svgforge --symbol --dest=out 'assets/./**/*.svg'
 
 The trick is the `./` right in the middle of the glob: it is the **directory marker**. Everything before it is only the base from which the icon ID is calculated. Without the marker, the base folder name would bleed into every ID:
 
-| Glob | Icon ID | Group |
-|---|---|---|
-| `assets/**/*.svg` | `assets--actions--add_circle` | `assets` (single, useless group) |
-| `assets/./**/*.svg` | `actions--add_circle` | `actions` |
+| Glob                | Icon ID                       | Group                            |
+| ------------------- | ----------------------------- | -------------------------------- |
+| `assets/**/*.svg`   | `assets--actions--add_circle` | `assets` (single, useless group) |
+| `assets/./**/*.svg` | `actions--add_circle`         | `actions`                        |
 
 With `./`, you get compact IDs like `actions--add_circle` from `assets/actions/add_circle.svg`. The base name `assets` disappears, and each subfolder level becomes a `--` segment — the picker turns it into the group filter. Without the marker, all icons would share the identical `assets--` prefix and the filter would be useless.
 
@@ -88,21 +90,19 @@ After the run, the finished sprite lives at `out/symbol/sprite.svg`. If you pref
 
 ```json
 {
-  "dest": "./dist/material",
-  "shape": {
-    "transform": [
-      {
-        "svgo": {
-          "plugins": [
-            { "name": "removeAttrs", "params": { "attrs": "fill" } }
-          ]
-        }
-      }
-    ]
-  },
-  "mode": {
-    "symbol": { "sprite": "sprite.svg", "render": { "css": false } }
-  }
+	"dest": "./dist/material",
+	"shape": {
+		"transform": [
+			{
+				"svgo": {
+					"plugins": [{ "name": "removeAttrs", "params": { "attrs": "fill" } }]
+				}
+			}
+		]
+	},
+	"mode": {
+		"symbol": { "sprite": "sprite.svg", "render": { "css": false } }
+	}
 }
 ```
 
