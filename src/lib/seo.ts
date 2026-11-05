@@ -2,8 +2,8 @@ export const SITE_URL = "https://svgforge.github.io";
 
 export const SITE_AUTHOR = {
 	"@type": "Person",
-	name: "Felix Müller",
-	url: "https://github.com/joeda1",
+	name: "SVG Forge",
+	url: "https://github.com/SpotlightOn",
 } as const;
 
 export function siteUrl(path = "/") {
