@@ -16,13 +16,15 @@ svgforge also supports other sprite modes: `view`, `stack`, and `defs`. For deta
 
 ## Prerequisites
 
-- Node.js 24 or later
+Node.js 24 or later
 
 ## Setup
 
-1. Create a project folder to work in. Let's call it `svgforge-project`.
-2. Download a few SVG icons into that folder.
-3. Install the library:
+**1.** Create a project folder to work in. Let's call it `svgforge-project`.
+
+**2.** Download a few SVG icons into that folder.
+
+**3.** Install the library:
 
 ```bash
 npm install @svgforge/svgforge
@@ -39,7 +41,7 @@ added 38 packages in 1m
 
 ## Building the sprite
 
-1. Create an `.mjs` file in the project folder (for example, `build-sprite.mjs`) and paste in the following code:
+**1.** Create an `.mjs` file in the project folder (for example, `build-sprite.mjs`) and paste in the following code:
 
 ```js
 import fs from "node:fs";
@@ -73,7 +75,7 @@ for (const mode of Object.values(result)) {
 
 Save the file.
 
-2. Run it in the terminal:
+**2.** Run it in the terminal:
 
 ```bash
 node build-sprite.mjs
@@ -86,13 +88,13 @@ Two files will appear in the `out-lib/symbol/` folder:
 
 ## Checking the sprite
 
-1. Start a local server:
+**1.** Start a local server:
 
 ```bash
 npx serve out-lib
 ```
 
-2. Open in your browser:
+**2.** Open in your browser:
 
 ```
 http://localhost:3000/symbol/sprite.symbol.html
@@ -102,9 +104,9 @@ You should see a confirmation that the sprite is ready. Now the icons from the s
 
 ## Using the sprite
 
-1. Create an HTML file inside the `out-lib/symbol/` folder. Name it `test-use.html`.
+**1.** Create an HTML file inside the `out-lib/symbol/` folder. Name it `test-use.html`.
 
-2. Paste the following code into the file:
+**2.** Paste the following code into the file:
 
 ```html
 <svg width="32" height="32">
@@ -123,15 +125,7 @@ You should see a confirmation that the sprite is ready. Now the icons from the s
 
 Save the file.
 
-3. If you stopped the local server earlier, start it again:
-
-```bash
-npx serve out-lib
-```
-
-If the local server is still running, move on to the next step.
-
-4. Open in your browser:
+**3.** If the local server is not running, restart it. Then open in your browser:
 
 ```
 http://localhost:3000/symbol/test-use.html
