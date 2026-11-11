@@ -10,7 +10,7 @@ tags:
 
 ---
 
-In this guide, we'll build a **symbol sprite** and test its icons on a page using `<use>` — the most modern and widely used approach.
+In this guide, we'll build a **symbol sprite** and test its icons on a page using `<use>`.
 
 svgforge also supports other sprite modes: `view`, `stack`, and `defs`. For details, see [Specific mode properties](https://github.com/svgforge/svgforge/blob/main/docs/configuration.md#specific-mode-properties).
 
@@ -115,6 +115,8 @@ You should see a confirmation that the sprite is ready. Now the icons from the s
 ```
 
 `#home` is the icon's identifier in the symbol sprite. By default, it matches the original SVG file name without the extension: `home.svg` → `home`.
+
+Replace `home` with the ID of the icon you want to use.
 
 **How to find your icon's identifier:**
 

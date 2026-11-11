@@ -10,7 +10,7 @@ tags:
 
 ---
 
-In this guide, we'll build a **symbol sprite** using the command line and test its icons on a page via `<use>` — the most modern and widely used approach.
+In this guide, we'll build a **symbol sprite** using the command line and test its icons on a page via `<use>`.
 
 svgforge also supports other sprite modes: `view`, `stack`, and `defs`. For details, see [Specific mode properties](https://github.com/svgforge/svgforge/blob/main/docs/configuration.md#specific-mode-properties).
 
@@ -72,9 +72,9 @@ If the `out` folder appears with the generated files, everything is working — 
 
 **1.** Open the `out/symbol` folder. Inside, you should find the following files:
 
-- `symbol/svg/sprite.symbol.svg`
-- `symbol/sprite.css`
-- `symbol/sprite.symbol.html`
+- `svg/sprite.symbol.svg`
+- `sprite.css`
+- `sprite.symbol.html`
 
 **2.** Open `sprite.symbol.html` by double-clicking it, or right-click → **Open with** → your browser. A page with the icons from the sprite should open.
 
@@ -107,6 +107,8 @@ Now the icons from the sprite can be used on any HTML page via `<use>`.
 ```
 
 `#home` is the icon's identifier in the symbol sprite. By default, it matches the original SVG file name without the extension: `home.svg` → `home`.
+
+Replace `home` with the ID of the icon you want to use.
 
 **To find your icon's identifier:**
 
