@@ -24,7 +24,7 @@ Node.js 24 or later
 
 **2.** Download a few SVG icons into that folder.
 
-**3.** Install the library:
+**3.** Install the svgforge:
 
 ```bash
 npm install @svgforge/svgforge
