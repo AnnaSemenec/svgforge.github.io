@@ -3,6 +3,7 @@
 title: "Quickstart: Get started with the svgforge CLI in 5 minutes"
 description: A quick introduction to the svgforge CLI that helps you install the tool, create your first sprite, and see how to use icons from the sprite in your own product.
 pubDate: 2026-11-07
+draft: true
 tags:
 
 - tutorial

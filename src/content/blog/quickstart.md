@@ -3,6 +3,7 @@
 title: "Quickstart: Build your first sprite in 5 minutes"
 description: A quick introduction to svgforge that helps you install the tool, create your first sprite, and see how to use icons from the sprite in your own product.
 pubDate: 2026-11-07
+draft: true
 tags:
 
 - tutorial
