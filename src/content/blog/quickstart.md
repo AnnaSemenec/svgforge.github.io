@@ -74,22 +74,48 @@ for (const mode of Object.values(result)) {
 }
 ```
 
+This script uses svgforge to combine SVG icons from your project into a single **symbol sprite** and saves the generated files to the `out-lib` directory.
+
+- `dest: "out-lib"` sets the output directory where the generated files are written.
+
+  In this example, the generated files are written to the `out-lib` directory in the root of your `svgforge-project` folder.
+
+  If you're using svgforge in an existing project, set `dest` to the directory where you want the generated files to be written. For example, this could be `dist` or `public`, depending on your project's structure and build setup.
+
+  `<OUTPUT_DIRECTORY>` is the directory you set in `dest`.
+
+- `fs.globSync("*.svg")` finds SVG files matching the specified glob pattern.
+  Replace `*.svg` with the path to your icon directory. For example, `src/assets/icons/**/*.svg` matches SVG files in the `src/assets/icons` directory and all its subdirectories.
+
 Save the file.
 
-**2.** Run it in the terminal:
+**2.** Run the `.mjs` file in the terminal:
 
 ```bash
 node build-sprite.mjs
 ```
 
-Two files will appear in the `out-lib/symbol/` folder:
+If you named the file differently in the previous step, replace `build-sprite.mjs` with your file name. For example, if you created `icons.mjs`, run:
+
+```bash
+node icons.mjs
+```
+
+Two files will appear in the `<OUTPUT_DIRECTORY>/symbol/` folder:
 
 - `sprite.symbol.svg` — the sprite itself
 - `sprite.symbol.html` — a preview page (generated because of `example: true`)
 
+If you set `dest: "out-lib"`, the files will appear in the `out-lib/symbol/` folder.
+
 ## Checking the sprite
 
 **1.** Start a local server:
+
+```bash
+npx serve <OUTPUT_DIRECTORY>
+```
+If you set `dest: "out-lib"`, run:
 
 ```bash
 npx serve out-lib
@@ -101,11 +127,15 @@ npx serve out-lib
 http://localhost:3000/symbol/sprite.symbol.html
 ```
 
+If the terminal shows a different port, use that port in the URL.
+
 You should see a confirmation that the sprite is ready. Now the icons from the sprite can be used on any page via `<use>`.
 
 ## Using the sprite
 
-**1.** Create an HTML file inside the `out-lib/symbol/` folder. Name it `test-use.html`.
+**1.** Create an HTML file inside the `<OUTPUT_DIRECTORY>/symbol/` folder. In this example — `out-lib/symbol/`.
+
+Name it `test-use.html`.
 
 **2.** Paste the following code into the file:
 
